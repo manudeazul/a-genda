@@ -11,6 +11,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { DatePickerField } from "@/components/appointment-form/date-picker-field";
+import { TimePickerField } from "@/components/appointment-form/time-picker-field";
 import { ASSIGNEES, SERVICE_TYPES } from "@/lib/mock-data";
 import type { NewAppointmentInput } from "@/lib/types";
 
@@ -127,12 +128,11 @@ export function AppointmentForm({ formId, defaultDate, onSubmit }: AppointmentFo
         </div>
         <div className="flex min-w-0 flex-col gap-1.5">
           <Label htmlFor="time">Horário</Label>
-          <Input
+          <TimePickerField
             id="time"
-            type="time"
             value={form.time}
-            onChange={(event) => updateField("time", event.target.value)}
-            aria-invalid={Boolean(errors.time)}
+            onChange={(value) => updateField("time", value)}
+            invalid={Boolean(errors.time)}
           />
           {errors.time && <p className="text-xs text-destructive">{errors.time}</p>}
         </div>
