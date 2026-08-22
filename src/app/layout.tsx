@@ -45,7 +45,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <ThemeProvider>
           <AppointmentsProvider>
             {children}
-            <Toaster position="top-right" richColors />
+            <Toaster position="top-right" />
           </AppointmentsProvider>
         </ThemeProvider>
       </body>

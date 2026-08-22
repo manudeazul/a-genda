@@ -10,9 +10,11 @@ export function formatDateLabel(isoDate: string): string {
   if (diffDays === 1) return "Amanhã";
   if (diffDays === -1) return "Ontem";
 
-  return date.toLocaleDateString("pt-BR", {
-    day: "2-digit",
-    month: "short",
-    weekday: "short",
-  });
+  return date
+    .toLocaleDateString("pt-BR", {
+      day: "2-digit",
+      month: "short",
+      weekday: "short",
+    })
+    .replace(/\./g, "");
 }

@@ -49,7 +49,8 @@ export function formatMonthYear(date: Date): string {
 }
 
 export function formatDayHeading(date: Date): string {
-  return capitalizeFirst(
-    date.toLocaleDateString("pt-BR", { weekday: "long", day: "2-digit", month: "long" }),
-  );
+  const formatted = date
+    .toLocaleDateString("pt-BR", { weekday: "long", day: "2-digit", month: "long" })
+    .replace("-feira", "");
+  return capitalizeFirst(formatted);
 }

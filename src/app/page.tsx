@@ -8,15 +8,15 @@ import { DayView } from "@/components/calendar/day-view";
 import { AppointmentDetailsDialog } from "@/components/appointment-form/appointment-details-dialog";
 import { useAppointments } from "@/hooks/use-appointments";
 import { hasActiveFilters as computeHasActiveFilters } from "@/lib/filters";
-import type { Appointment } from "@/lib/types";
 
 export default function AgendaPage() {
   const { appointments } = useAppointments();
   const [search, setSearch] = useState("");
   const [status, setStatus] = useState<StatusFilter>("all");
   const [assignee, setAssignee] = useState<AssigneeFilter>("all");
-  const [selected, setSelected] = useState<Appointment | null>(null);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const selected = selectedId ? (appointments.find((a) => a.id === selectedId) ?? null) : null;
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 600);
@@ -53,7 +53,7 @@ export default function AgendaPage() {
           status={status}
           assignee={assignee}
           isLoading={isLoading}
-          onSelect={setSelected}
+          onSelect={(appointment) => setSelectedId(appointment.id)}
         />
         <DayView
           appointments={appointments}
@@ -61,13 +61,13 @@ export default function AgendaPage() {
           status={status}
           assignee={assignee}
           isLoading={isLoading}
-          onSelect={setSelected}
+          onSelect={(appointment) => setSelectedId(appointment.id)}
         />
       </main>
 
       <AppointmentDetailsDialog
         appointment={selected}
-        onOpenChange={(open) => !open && setSelected(null)}
+        onOpenChange={(open) => !open && setSelectedId(null)}
       />
     </>
   );

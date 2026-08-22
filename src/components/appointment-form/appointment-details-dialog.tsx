@@ -1,6 +1,6 @@
 "use client";
 
-import { Contact, Copy, MapPin, Navigation, NotebookText, User } from "lucide-react";
+import { CalendarClock, Contact, Copy, MapPin, Navigation, NotebookText, User } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
@@ -66,20 +66,23 @@ export function AppointmentDetailsDialog({
           <>
             <DialogDescription className="sr-only">Detalhes do agendamento</DialogDescription>
 
-            <div className="flex flex-col gap-3 pr-6">
-              <div className="flex flex-col gap-0.5">
-                <p className="text-xm text-muted-foreground">{formatDateLabel(appointment.date)} {appointment.time}</p>
-              </div>
-              <div className="flex flex-col gap-0.5">
+            <div className="flex flex-col gap-4 pr-6">
+              <span className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground">
+                <CalendarClock className="size-4" />
+                {formatDateLabel(appointment.date)} · {appointment.time}
+              </span>
+
+              <div className="flex flex-col gap-1">
                 <p className="text-xs text-muted-foreground">{appointment.serviceType}</p>
-                <DialogTitle className="text-lg">{appointment.description}</DialogTitle>
+                <DialogTitle className="text-lg leading-snug">{appointment.description}</DialogTitle>
               </div>
-              <div className="flex flex-wrap items-center gap-2">
-                <StatusPicker value={appointment.status} onChange={handleStatusChange} />
+
+              <div className="flex flex-wrap items-center justify-between gap-2">
                 <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
                   <User className="size-3.5" />
                   {appointment.assignee}
                 </span>
+                <StatusPicker value={appointment.status} onChange={handleStatusChange} />
               </div>
             </div>
 

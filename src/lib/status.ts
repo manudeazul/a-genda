@@ -35,3 +35,8 @@ export const STATUS_CONFIG: Record<AppointmentStatus, StatusConfig> = {
 };
 
 export const STATUS_ORDER: AppointmentStatus[] = ["scheduled", "in-progress", "done", "cancelled"];
+
+export const NEXT_STATUS: Partial<Record<AppointmentStatus, AppointmentStatus>> = {
+  scheduled: "in-progress",
+  "in-progress": "done",
+};
