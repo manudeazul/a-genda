@@ -106,13 +106,13 @@
 
   /* Cores semanticas de status (complementam a paleta de marca) */
   --status-scheduled: var(--brand-accent);
-  --status-scheduled-bg: color-mix(in srgb, var(--brand-accent) 14%, white);
+  --status-scheduled-bg: color-mix(in srgb, var(--brand-accent) 20%, var(--muted));
   --status-in-progress: var(--brand-gold);
-  --status-in-progress-bg: color-mix(in srgb, var(--brand-gold) 22%, white);
+  --status-in-progress-bg: color-mix(in srgb, var(--brand-gold) 20%, var(--muted));
   --status-done: oklch(0.6 0.13 155);
-  --status-done-bg: oklch(0.94 0.05 155);
+  --status-done-bg: color-mix(in srgb, oklch(0.6 0.13 155) 20%, var(--muted));
   --status-cancelled: oklch(0.55 0.2 25);
-  --status-cancelled-bg: oklch(0.95 0.04 25);
+  --status-cancelled-bg: color-mix(in srgb, oklch(0.55 0.2 25) 20%, var(--muted));
 }
 
 .dark {
@@ -169,6 +169,7 @@
   }
   html {
     @apply font-sans;
+    -webkit-tap-highlight-color: transparent;
   }
 }
 

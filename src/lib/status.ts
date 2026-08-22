@@ -11,25 +11,25 @@ export const STATUS_CONFIG: Record<AppointmentStatus, StatusConfig> = {
   scheduled: {
     label: "Agendado",
     dotClassName: "bg-status-scheduled",
-    badgeClassName: "bg-status-scheduled-bg text-status-scheduled",
+    badgeClassName: "text-status-scheduled dark:bg-muted dark:text-status-scheduled",
     barClassName: "border-l-status-scheduled",
   },
   "in-progress": {
     label: "Em andamento",
     dotClassName: "bg-status-in-progress",
-    badgeClassName: "bg-status-in-progress-bg text-status-in-progress",
+    badgeClassName: "text-status-in-progress dark:bg-muted dark:text-status-in-progress",
     barClassName: "border-l-status-in-progress",
   },
   done: {
     label: "Concluído",
     dotClassName: "bg-status-done",
-    badgeClassName: "bg-status-done-bg text-status-done",
+    badgeClassName: "text-status-done dark:bg-muted dark:text-status-done",
     barClassName: "border-l-status-done",
   },
   cancelled: {
     label: "Cancelado",
     dotClassName: "bg-status-cancelled",
-    badgeClassName: "bg-status-cancelled-bg text-status-cancelled",
+    badgeClassName: "text-status-cancelled dark:bg-muted dark:text-status-cancelled",
     barClassName: "border-l-status-cancelled",
   },
 };

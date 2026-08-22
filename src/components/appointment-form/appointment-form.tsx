@@ -92,7 +92,7 @@ export function AppointmentForm({ formId, defaultDate, onSubmit }: AppointmentFo
           id="description"
           value={form.description}
           onChange={(event) => updateField("description", event.target.value)}
-          placeholder="Ex: Corte em camadas + escova modelada"
+          placeholder="Ex: Análise de vibração em motores e redutores"
           aria-invalid={Boolean(errors.description)}
         />
         {errors.description && <p className="text-xs text-destructive">{errors.description}</p>}

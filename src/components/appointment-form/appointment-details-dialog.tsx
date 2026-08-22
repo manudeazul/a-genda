@@ -66,8 +66,8 @@ export function AppointmentDetailsDialog({
           <>
             <DialogDescription className="sr-only">Detalhes do agendamento</DialogDescription>
 
-            <div className="flex flex-col gap-4 pr-6">
-              <span className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground">
+            <div className="flex flex-col gap-4">
+              <span className="flex items-center gap-1.5 pr-6 text-sm font-medium text-muted-foreground">
                 <CalendarClock className="size-4" />
                 {formatDateLabel(appointment.date)} · {appointment.time}
               </span>

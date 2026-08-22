@@ -17,7 +17,13 @@ export function StatusPicker({
   const nextStatus = NEXT_STATUS[value];
 
   return (
-    <div className="inline-flex h-7 items-center overflow-hidden rounded-full">
+    <div
+      className={cn(
+        "inline-flex h-7 items-center overflow-hidden rounded-full border-2 dark:border-transparent",
+        config.badgeClassName.split(" ")[0],
+      )}
+      style={{ borderColor: "color-mix(in srgb, currentColor 55%, transparent)" }}
+    >
       <Select value={value} onValueChange={(next) => onChange(next as AppointmentStatus)}>
         <SelectTrigger
           size="sm"
@@ -44,7 +50,7 @@ export function StatusPicker({
           title={`Avançar para "${STATUS_CONFIG[nextStatus].label}"`}
           aria-label={`Avançar para ${STATUS_CONFIG[nextStatus].label}`}
           className={cn(
-            "flex h-7 items-center self-stretch border-l border-background/40 px-2 transition-colors hover:brightness-95",
+            "flex size-7 shrink-0 items-center justify-center border-l border-background/40 transition-colors hover:brightness-95",
             config.badgeClassName,
           )}
         >

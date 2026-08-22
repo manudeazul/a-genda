@@ -43,7 +43,7 @@ Nenhum backend, autenticação ou banco de dados.
 - **Status editável direto no card e no modal** (`StatusPicker`), com um indicador visual que **pulsa em vermelho quando o agendamento está atrasado** (horário já passou e o status continua "Agendado") — um alerta discreto, sem poluir a interface.
 - **Ações de endereço**: quando o agendamento tem endereço, é possível copiá-lo ou abrir direto no Google Maps.
 - **Estados de interface**: skeleton loading, empty state (com atalho para criar um agendamento direto dali), filtro por status/responsável/busca por texto, e um botão de limpar filtros.
-- **Responsividade pensada, não só encolhida**: no mobile, a barra de filtros colapsa em um ícone com popover, o "Novo agendamento" abre como drawer lateral (mesmo formulário do desktop) e a agenda muda de "semana em colunas" para "um dia por vez em cards".
+- **Responsividade pensada**: no mobile, a barra de filtros colapsa em um ícone com popover, o "Novo agendamento" abre como drawer lateral (mesmo formulário do desktop) e a agenda muda de "semana em colunas" para "um dia por vez em cards".
 - **Modo claro/escuro completo**: todos os componentes consomem as mesmas variáveis de tema (`src/app/globals.css`) em vez de cores fixas, então a troca entre claro e escuro é automática em qualquer tela — nenhum componente precisou de uma versão separada para cada modo.
 
 ## Estrutura do projeto
@@ -67,7 +67,9 @@ A separação segue um critério simples: `lib/` não conhece React; `contexts/`
 ## O que eu faria diferente ou melhoraria com mais tempo
 
 - **Persistência real**: hoje o estado vive só em memória (Context) — um próximo passo natural seria `localStorage` ou um backend de verdade.
+- **Regras de negócio**: adicionar regras internas, como por exemplo impedir que um agendamento já finalizado ou cancelado volte para um status anterior.
 - **Testes automatizados**: não há testes unitários/E2E; com mais tempo cobriria os filtros, a lógica de data (`lib/date.ts`, `lib/filters.ts`) e os fluxos de criação/edição de status.
+- **Visualização por lista**: hoje toda informação aparece em formato de calendário; seria interessante também ter uma visão em lista de todos os agendamentos, facilitando filtros mais elaborados e a exportação/visualização dos dados.
 - **Drag and drop entre datas e horários**: arrastar um card direto na visão de semana para reagendá-lo, em vez de precisar abrir o formulário.
 - **Formulário com verificação de disponibilidade**: ao escolher data/horário, o formulário poderia consultar a agenda em tempo real, sinalizar conflitos e sugerir os próximos horários livres do responsável selecionado, em vez de aceitar qualquer combinação.
 - **Integração com o Google Agenda**: sincronização bidirecional dos agendamentos com uma conta Google, para quem já vive dentro do calendário do Google no dia a dia.
