@@ -10,7 +10,7 @@ Pré-requisitos: Node.js 18+ e npm.
 
 ```bash
 npm install
-npm run dev
+npm run dev 
 ```
 
 Abra [http://localhost:3000](http://localhost:3000). Os dados são todos mockados localmente (`src/lib/mock-data.ts`) — não há backend nem variáveis de ambiente necessárias.
