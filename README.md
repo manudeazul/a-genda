@@ -3,7 +3,6 @@
 Sistema de agendamento de serviços — desafio técnico frontend em Next.js, React e TypeScript.
 
 🔗 **Aplicação publicada:** [adicionar link da Vercel aqui]
-🔗 **Repositório:** [adicionar link do repositório aqui]
 
 ## Como rodar o projeto
 
