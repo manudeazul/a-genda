@@ -29,11 +29,23 @@ export function CalendarNav({
 }: CalendarNavProps) {
   return (
     <div className="relative flex items-center justify-between">
-      <div className="flex items-center">
-        <Button variant="ghost" size="icon" onClick={onPrev} aria-label={prevLabel}>
+      <div className="flex items-center gap-1">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="size-11 sm:size-8"
+          onClick={onPrev}
+          aria-label={prevLabel}
+        >
           <ChevronLeft />
         </Button>
-        <Button variant="ghost" size="icon" onClick={onNext} aria-label={nextLabel}>
+        <Button
+          variant="ghost"
+          size="icon"
+          className="size-11 sm:size-8"
+          onClick={onNext}
+          aria-label={nextLabel}
+        >
           <ChevronRight />
         </Button>
       </div>

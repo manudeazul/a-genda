@@ -73,9 +73,9 @@
 
   --background: var(--brand-sky);
   --foreground: var(--brand-ink);
-  --card: #daeaff;
+  --card: #cfe2fb;
   --card-foreground: var(--brand-ink);
-  --popover: #daeaff;
+  --popover: #cfe2fb;
   --popover-foreground: var(--brand-ink);
   --primary: var(--brand-accent);
   --primary-foreground: #ffffff;

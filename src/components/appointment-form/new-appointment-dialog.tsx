@@ -45,7 +45,7 @@ export function NewAppointmentDialog({ trigger, defaultDate }: NewAppointmentDia
           </Button>
         )}
       </DrawerTrigger>
-      <DrawerContent className="flex flex-col overflow-hidden sm:max-w-md">
+      <DrawerContent className="flex flex-col overflow-hidden data-[vaul-drawer-direction=right]:w-[87%] sm:max-w-md">
         <DrawerClose asChild>
           <Button variant="ghost" size="icon-sm" className="absolute top-4 right-4" aria-label="Fechar">
             <X />
