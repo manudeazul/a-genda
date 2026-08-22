@@ -2,7 +2,7 @@
 
 Sistema de agendamento de serviços — desafio técnico frontend em Next.js, React e TypeScript.
 
-🔗 **Aplicação publicada:** [adicionar link da Vercel aqui]
+🔗 **Aplicação publicada:** a-genda-theta.vercel.app
 
 ## Como rodar o projeto
 
