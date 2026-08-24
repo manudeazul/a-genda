@@ -17,6 +17,7 @@ export function WeekAppointmentCard({
   return (
     <button
       type="button"
+      data-tour="appointment-card"
       onClick={() => onSelect(appointment)}
       className={cn(
         "flex w-full flex-col gap-2.5 rounded-xl border border-l-4 border-border bg-card p-3 text-left shadow-sm transition-all",

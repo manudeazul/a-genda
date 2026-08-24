@@ -34,18 +34,22 @@ export default function AgendaPage() {
   return (
     <>
       <Header />
-      <main className="mx-auto flex w-full min-h-0 max-w-[1600px] flex-1 flex-col gap-4 overflow-hidden px-4 py-4 sm:px-6 sm:py-6">
-        <FilterBar
-          className="shrink-0"
-          search={search}
-          onSearchChange={setSearch}
-          status={status}
-          onStatusChange={setStatus}
-          assignee={assignee}
-          onAssigneeChange={setAssignee}
-          hasActiveFilters={activeFilters}
-          onClearFilters={clearFilters}
-        />
+      <main
+        data-tour="agenda"
+        className="mx-auto flex w-full min-h-0 max-w-[1600px] flex-1 flex-col gap-4 overflow-hidden px-4 py-4 sm:px-6 sm:py-6"
+      >
+        <div data-tour="filters" className="shrink-0">
+          <FilterBar
+            search={search}
+            onSearchChange={setSearch}
+            status={status}
+            onStatusChange={setStatus}
+            assignee={assignee}
+            onAssigneeChange={setAssignee}
+            hasActiveFilters={activeFilters}
+            onClearFilters={clearFilters}
+          />
+        </div>
 
         <WeekView
           appointments={appointments}

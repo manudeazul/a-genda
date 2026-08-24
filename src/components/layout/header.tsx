@@ -8,8 +8,12 @@ export function Header() {
       <div className="mx-auto flex w-full max-w-[1600px] items-center justify-between px-4 py-3 sm:px-6">
         <Logo />
         <div className="flex items-center gap-2">
-          <NewAppointmentDialog />
-          <ThemeToggle />
+          <span data-tour="new-appointment" className="inline-flex">
+            <NewAppointmentDialog />
+          </span>
+          <span data-tour="theme-toggle" className="inline-flex">
+            <ThemeToggle />
+          </span>
         </div>
       </div>
     </header>

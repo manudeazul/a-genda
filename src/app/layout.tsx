@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/contexts/theme-context";
 import { AppointmentsProvider } from "@/contexts/appointments-context";
 import { Toaster } from "@/components/ui/sonner";
+import { OnboardingController } from "@/components/onboarding/onboarding-controller";
 
 const poppins = Poppins({
   variable: "--font-sans",
@@ -46,6 +47,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <AppointmentsProvider>
             {children}
             <Toaster position="top-right" />
+            <OnboardingController />
           </AppointmentsProvider>
         </ThemeProvider>
       </body>
