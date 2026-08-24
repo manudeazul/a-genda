@@ -1,13 +1,16 @@
 "use client";
 
-import { CalendarClock, Contact, Copy, MapPin, Navigation, NotebookText, User } from "lucide-react";
+import { Contact, Copy, MapPin, Navigation, NotebookText } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Separator } from "@/components/ui/separator";
+import { StatusDot } from "@/components/agenda/status-dot";
 import { StatusPicker } from "@/components/agenda/status-picker";
+import { AssigneePicker } from "@/components/appointment-form/assignee-picker";
+import { DateTimePickerPopover } from "@/components/appointment-form/date-time-picker-popover";
 import { useAppointments } from "@/hooks/use-appointments";
-import { formatDateLabel } from "@/lib/format";
+import { isOverdue } from "@/lib/appointment";
 import { STATUS_CONFIG } from "@/lib/status";
 import type { Appointment, AppointmentStatus } from "@/lib/types";
 
@@ -40,13 +43,29 @@ export function AppointmentDetailsDialog({
   appointment: Appointment | null;
   onOpenChange: (open: boolean) => void;
 }) {
-  const { updateAppointmentStatus } = useAppointments();
+  const { updateAppointmentStatus, updateAppointment } = useAppointments();
 
   function handleStatusChange(status: AppointmentStatus) {
     if (!appointment) return;
     updateAppointmentStatus(appointment.id, status);
     toast.success("Status atualizado", {
       description: `${appointment.description} agora está "${STATUS_CONFIG[status].label}".`,
+    });
+  }
+
+  function handleDateTimeChange(value: { date: string; time: string }) {
+    if (!appointment) return;
+    updateAppointment(appointment.id, value);
+    toast.success("Agendamento reagendado", {
+      description: `${appointment.description} atualizado.`,
+    });
+  }
+
+  function handleAssigneeChange(assignee: string) {
+    if (!appointment) return;
+    updateAppointment(appointment.id, { assignee });
+    toast.success("Responsável atualizado", {
+      description: `${appointment.description} agora com ${assignee}.`,
     });
   }
 
@@ -61,16 +80,25 @@ export function AppointmentDetailsDialog({
 
   return (
     <Dialog open={Boolean(appointment)} onOpenChange={onOpenChange}>
-      <DialogContent className="max-h-[90vh] overflow-y-auto sm:max-w-md">
+      <DialogContent className="max-h-[90vh] overflow-x-hidden overflow-y-auto sm:max-w-md">
         {appointment && (
           <>
             <DialogDescription className="sr-only">Detalhes do agendamento</DialogDescription>
 
             <div className="flex flex-col gap-4">
-              <span className="flex items-center gap-1.5 pr-6 text-sm font-medium text-muted-foreground">
-                <CalendarClock className="size-4" />
-                {formatDateLabel(appointment.date)} · {appointment.time}
-              </span>
+              <div className="flex flex-wrap items-center gap-2 pr-6">
+                <DateTimePickerPopover
+                  date={appointment.date}
+                  time={appointment.time}
+                  onChange={handleDateTimeChange}
+                />
+                {isOverdue(appointment) && (
+                  <span className="flex items-center gap-1.5 text-xs font-medium text-status-cancelled">
+                    <StatusDot status={appointment.status} overdue />
+                    Atrasado
+                  </span>
+                )}
+              </div>
 
               <div className="flex flex-col gap-1">
                 <p className="text-xs text-muted-foreground">{appointment.serviceType}</p>
@@ -78,10 +106,7 @@ export function AppointmentDetailsDialog({
               </div>
 
               <div className="flex flex-wrap items-center justify-between gap-2">
-                <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
-                  <User className="size-3.5" />
-                  {appointment.assignee}
-                </span>
+                <AssigneePicker value={appointment.assignee} onChange={handleAssigneeChange} />
                 <StatusPicker value={appointment.status} onChange={handleStatusChange} />
               </div>
             </div>

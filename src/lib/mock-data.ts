@@ -2,6 +2,7 @@ import { addDays, toISODate } from "@/lib/date";
 
 import type { Appointment } from "@/lib/types";
 
+// Datas relativas a "hoje" para que a agenda sempre pareça atual ao rodar a demo.
 function isoDateOffset(days: number): string {
   return toISODate(addDays(new Date(), days));
 }
@@ -10,176 +11,156 @@ export const MOCK_APPOINTMENTS: Appointment[] = [
   {
     id: "1",
     client: "Samarco Mineração",
-    description: "Análise de vibração em motores e redutores da linha de beneficiamento",
+    description:
+      "Análise de vibração em motores e redutores da linha de beneficiamento",
     serviceType: "Análise de Vibração",
     date: isoDateOffset(0),
     time: "08:00",
     assignee: "Rafael Mendes",
     status: "in-progress",
     address: "Unidade Industrial - Anchieta/ES",
-    notes: "Priorizar os ativos críticos da linha 03.",
+    notes:
+      "Priorizar os ativos críticos da linha 03 e registrar medições no sistema.",
     createdAt: new Date().toISOString(),
   },
+
   {
     id: "2",
     client: "ArcelorMittal Brasil",
-    description: "Coleta de amostras e avaliação da condição do óleo de redutores",
+    description:
+      "Coleta de amostras e avaliação da condição do óleo de redutores",
     serviceType: "Análise de Óleo",
     date: isoDateOffset(0),
-    time: "10:30",
+    time: "08:30",
     assignee: "Camila Rodrigues",
     status: "scheduled",
     address: "Planta Industrial - Serra/ES",
+    notes:
+      "Coletar amostras dos equipamentos identificados no plano de lubrificação.",
     createdAt: new Date().toISOString(),
   },
+
   {
     id: "3",
     client: "Suzano Papel e Celulose",
-    description: "Inspeção termográfica em painéis elétricos e equipamentos rotativos",
+    description:
+      "Inspeção termográfica em painéis elétricos e equipamentos rotativos",
     serviceType: "Termografia",
-    date: isoDateOffset(1),
+    date: isoDateOffset(0),
     time: "14:00",
     assignee: "André Oliveira",
     status: "scheduled",
     address: "Unidade Industrial - Aracruz/ES",
     createdAt: new Date().toISOString(),
   },
+
   {
     id: "4",
     client: "Vale S.A.",
-    description: "Implantação de plano de gestão da lubrificação para ativos críticos",
+    description:
+      "Implantação de plano de gestão da lubrificação para ativos críticos",
     serviceType: "Gestão da Lubrificação",
     date: isoDateOffset(1),
     time: "08:30",
     assignee: "Marcos Ferreira",
     status: "scheduled",
     address: "Complexo Industrial - Vitória/ES",
-    notes: "Mapear pontos críticos e revisar periodicidades.",
+    notes:
+      "Mapear pontos críticos, revisar lubrificantes utilizados e validar periodicidades.",
     createdAt: new Date().toISOString(),
   },
+
   {
     id: "5",
     client: "Petrobras",
-    description: "Inspeção ultrassônica para identificação de vazamentos em sistemas industriais",
+    description:
+      "Inspeção ultrassônica para identificação de vazamentos em sistemas industriais",
     serviceType: "Ultrassom",
     date: isoDateOffset(-1),
     time: "09:00",
     assignee: "Camila Rodrigues",
     status: "done",
     address: "Unidade Operacional - São José dos Campos/SP",
+    notes:
+      "Relatório técnico entregue ao responsável pela manutenção.",
     createdAt: new Date().toISOString(),
   },
+
   {
     id: "6",
     client: "Braskem",
-    description: "Filtragem e purificação do óleo hidráulico de equipamentos críticos",
+    description:
+      "Filtragem e purificação do óleo hidráulico de equipamentos críticos",
     serviceType: "Filtragem de Óleo",
     date: isoDateOffset(-2),
     time: "13:30",
     assignee: "Rafael Mendes",
     status: "done",
     address: "Complexo Petroquímico - Camaçari/BA",
+    notes:
+      "Realizada filtragem para remoção de partículas e controle de contaminação.",
     createdAt: new Date().toISOString(),
   },
+
   {
-    id: "13",
-    client: "Vale S.A.",
-    description: "Inspeção termográfica de motores, painéis e equipamentos industriais",
-    serviceType: "Termografia",
-    date: isoDateOffset(3),
-    time: "14:00",
-    assignee: "André Oliveira",
-    status: "scheduled",
-    address: "Complexo Industrial - Vitória/ES",
-    notes: "Inspeção preventiva antes da parada programada.",
-    createdAt: new Date().toISOString(),
-  },
-  {
-    id: "14",
-    client: "ArcelorMittal Brasil",
-    description: "Revisão do plano de lubrificação dos equipamentos da linha de laminação",
-    serviceType: "Gestão da Lubrificação",
-    date: isoDateOffset(4),
-    time: "08:30",
-    assignee: "Marcos Ferreira",
-    status: "scheduled",
-    address: "Planta Industrial - Serra/ES",
-    notes: "Revisar periodicidade e pontos de aplicação.",
-    createdAt: new Date().toISOString(),
-  },
-  {
-    id: "15",
-    client: "Braskem",
-    description: "Identificação de vazamentos em linhas e equipamentos utilizando ultrassom",
-    serviceType: "Ultrassom",
-    date: isoDateOffset(4),
-    time: "11:00",
-    assignee: "Camila Rodrigues",
-    status: "scheduled",
-    address: "Complexo Petroquímico - Camaçari/BA",
-    createdAt: new Date().toISOString(),
-  },
-  {
-    id: "16",
+    id: "7",
     client: "CSN - Companhia Siderúrgica Nacional",
-    description: "Balanceamento dinâmico de conjunto rotativo do sistema de bombeamento",
+    description:
+      "Alinhamento de eixos e balanceamento de conjunto motor-bomba",
     serviceType: "Alinhamento e Balanceamento",
-    date: isoDateOffset(-2),
-    time: "14:30",
+    date: isoDateOffset(1),
+    time: "15:00",
     assignee: "André Oliveira",
     status: "scheduled",
     address: "Unidade Industrial - Volta Redonda/RJ",
-    notes: "Confirmar parada do equipamento antes da chegada da equipe.",
+    notes:
+      "Equipamento deverá estar disponível para intervenção no horário programado.",
     createdAt: new Date().toISOString(),
   },
+
   {
-    id: "18",
+    id: "8",
     client: "Usiminas",
-    description: "Instalação de sistema de lubrificação automática em mancais",
+    description:
+      "Instalação e configuração de sistema de lubrificação automática",
     serviceType: "Lubrificação Automática",
-    date: isoDateOffset(5),
-    time: "09:30",
+    date: isoDateOffset(2),
+    time: "08:00",
     assignee: "Marcos Ferreira",
     status: "scheduled",
     address: "Planta Industrial - Ipatinga/MG",
-    notes: "Material de instalação já separado no almoxarifado.",
+    notes:
+      "Validar pontos de lubrificação e realizar testes de funcionamento após instalação.",
     createdAt: new Date().toISOString(),
   },
+
   {
-    id: "21",
-    client: "Votorantim Cimentos",
-    description: "Análise de vibração em ventiladores e motores do processo produtivo",
-    serviceType: "Análise de Vibração",
-    date: isoDateOffset(6),
-    time: "08:30",
-    assignee: "André Oliveira",
+    id: "9",
+    client: "Raízen",
+    description:
+      "Inspeção de condição dos ativos e levantamento de pontos de lubrificação",
+    serviceType: "Monitoramento de Condição",
+    date: isoDateOffset(2),
+    time: "10:30",
+    assignee: "Rafael Mendes",
     status: "scheduled",
-    address: "Unidade Industrial - Sobradinho/DF",
+    address: "Unidade Industrial - Piracicaba/SP",
     createdAt: new Date().toISOString(),
   },
+
   {
-    id: "25",
-    client: "WEG",
-    description: "Inspeção ultrassônica em componentes e sistemas pneumáticos",
-    serviceType: "Ultrassom",
-    date: isoDateOffset(7),
-    time: "10:00",
-    assignee: "Camila Rodrigues",
-    status: "scheduled",
-    address: "Unidade Industrial - Jaraguá do Sul/SC",
-    createdAt: new Date().toISOString(),
-  },
-  {
-    id: "26",
-    client: "Suzano Papel e Celulose",
-    description: "Alinhamento a laser de conjunto motor-bomba",
-    serviceType: "Alinhamento e Balanceamento",
-    date: isoDateOffset(7),
+    id: "10",
+    client: "Anglo American",
+    description:
+      "Auditoria das rotinas e procedimentos de lubrificação industrial",
+    serviceType: "Auditoria de Lubrificação",
+    date: isoDateOffset(-3),
     time: "14:00",
-    assignee: "André Oliveira",
-    status: "scheduled",
-    address: "Unidade Industrial - Mucuri/BA",
-    notes: "Equipamento deverá permanecer parado durante a execução.",
+    assignee: "Marcos Ferreira",
+    status: "cancelled",
+    address: "Unidade Industrial - Conceição do Mato Dentro/MG",
+    notes:
+      "Auditoria reagendada pelo cliente para a próxima semana.",
     createdAt: new Date().toISOString(),
   },
 ];

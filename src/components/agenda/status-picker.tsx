@@ -19,7 +19,7 @@ export function StatusPicker({
   return (
     <div
       className={cn(
-        "inline-flex h-7 items-center overflow-hidden rounded-full border-2 dark:border-transparent",
+        "inline-flex h-7 shrink-0 items-center overflow-hidden rounded-full border-2 dark:border-transparent",
         config.badgeClassName.split(" ")[0],
       )}
       style={{ borderColor: "color-mix(in srgb, currentColor 55%, transparent)" }}
